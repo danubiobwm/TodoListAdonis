@@ -1,0 +1,19 @@
+@layout('main')
+@section('content')
+
+<h2>{{ title }}</h2>
+@if(old('notification'))
+
+<div class="alert alert-success" role="alert">
+  {{old('notification')}}
+</div>
+
+@endif
+<ul class="list-group">
+  @each(item in tasks)
+
+<a href="/task/{{ item.id }}" class="list-group-item">{{item.title}}</a>
+
+  @endeach
+</ul>
+@endsection
